@@ -13,7 +13,7 @@
         echo $error = $_FILES['file']['error'] . "<br>";
     ?>
 
-    <form action="files.php" method="post" enctype="multipart/form-data">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <button type="submit">Submit</button>
     </form>
