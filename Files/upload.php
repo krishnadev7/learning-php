@@ -1,34 +1,30 @@
 <?php
 if (isset($_POST['submit'])) {
     $file = $_FILES['file'];
-    $name = $_FILES['file']['name']; // find the name
-    $tmp_name = $_FILES['file']['tmp_name']; // find the location of file
-    $size = $_FILES['file']['size']; // find the size of the file
-    $error = $_FILES['file']['error']; // find any erros
+    $name = $_FILES['file']['name'];
+    $temp_name = $_FILES['file']['tmp_name'];
+    $size = $_FILES['file']['size'];
+    $error = $_FILES['file']['error'];
 
-    // separating name from punctuation mark.
-    $tempExtension = explode('.', $name);
-    // conveting extension name to lower case
-    $fileExtension = strtolower(end($tempExtension));
+    $temp_extension = explode('.', $name);
+    $file_extension = strtolower(end($temp_extension));
 
-    //Allowed Extensions
-    $isAllowed = array('pnp', 'jpg', 'jpeg', 'pdf');
-
-    if (in_array($fileExtension, $isAllowed)) {
+    $isAllowed = array('jpg', 'jpeg', 'png', 'pdf');
+ 
+    if (in_array($file_extension, $isAllowed)) {
         if ($error === 0) {
             if ($size < 30000) {
-                $newFilename = uniqid('', true) . "." . $fileExtension;
-                $fileDestination = "uploads/" . $newFilename;
+                $newFileName = uniqid('', true) . "." . $file_extension;
+                $fileDestination = "uploads/" . $newFileName;
                 move_uploaded_file($temp_name, $fileDestination);
-                header("Location:files.php?uploadedSuccess");
+                header("Location: files.php?uploadedsuccess");
             } else {
-                echo "sorry you're file size is too big!";
+                echo "Sorry your file size is too big";
             }
         } else {
-            echo "sorry there was an error check again!";
+            echo "Sorry there was an error try it again..!";
         }
     } else {
-        echo "Sorry, Your file type is not allowed";
+        echo "Sorry, your file type is not accepted...!";
     }
 }
-?>
