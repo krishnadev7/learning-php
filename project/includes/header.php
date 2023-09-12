@@ -1,5 +1,6 @@
 <?php
-include_once './includes/database.php'
+include_once './includes/database.php';
+include_once './includes/register-inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

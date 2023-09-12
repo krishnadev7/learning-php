@@ -67,6 +67,16 @@ div{
     height: 30px;
 }
 
+input{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 0 10px #666;
+    width: 240px;
+    height: 30px;
+    background-color: #f2f2f2;
+}
+
 button{
     width: 240px;
     height: 60px;
